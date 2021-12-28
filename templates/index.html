@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mypage</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        function profile_edit() {
+            let url = $('#profile-img-edit').val()
+
+            $.ajax({
+                type: 'POST',
+                url: '/tensta_mypage',
+                data: { img_give: url},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <p><strong>마이페이지</strong></p>
+    </div>
+    <div id="container">
+        <div id="profile-wrapper">
+            <div id="profile-left">
+                <div id="profile-img">
+                    <img src="" alt="">
+                </div>
+                <p>프로필 편집</p>
+            </div>
+            <div id="profile-right">
+                <span>로그인 아이디</span>
+                <span>이메일 주소</span>
+                <span>한 줄 소개</span>
+            </div>
+        </div>
+        <div id="count-container">
+            <div id="count-wrapper">
+                <p><strong>게시물 갯수: </strong></p>
+            </div>
+        </div>
+        <div id="post-container">
+            <div class="post-body">
+                <img src="" alt="게시물이미지">
+                <input id="profile-img-edit" type="text">
+                <button onclick="profile_edit()" type="button"></button>
+            </div>
+            <div class="post-body">
+                <img src="" alt="게시물이미지">
+            </div>
+            <div class="post-body">
+                <img src="" alt="게시물이미지">
+            </div>
+            <div class="post-body">
+                <img src="" alt="게시물이미지">
+            </div>
+        </div>
+        <div id="footer-container">
+            <div>홈</div>
+            <div>글쓰기</div>
+            <div>마이페이지</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
